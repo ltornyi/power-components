@@ -67,6 +67,24 @@ The path above is where your pcfproj file can be found and it will be added to t
 
 To test and debug after deploying to Dataverse, follow the instructions [here](https://learn.microsoft.com/en-us/power-apps/developer/component-framework/debugging-custom-controls#debugging-after-deploying-into-microsoft-dataverse).
 
+### Detailed instructions for requestly.io
+
+1. Go into your component folder and create a local dev build, for example `npm start`. You can stop the test harness.
+2. Go into the dev build folder and launch a static webserver, for example
+
+    cd out/controls/HelloWorld
+
+    python3 -m http.server
+
+3. Go to https://app.requestly.io/rules/my-rules, install the Chrome plugin.
+4. Visit the relevant form or page to be debugged
+5. Look for your resource in the form of https://YOUR_ORG/(SOME_NUMBER)/webresources/cc_YourNamespace.YourComponent/bundle.js
+6. Copy the URL and create a requestly rule to redirect to http://localhost:8000/bundle.js
+7. While the dev console is open, press and hold the refresh icon, choose "Empty cache and hard reload"
+8. Watch as bundle.js gets loaded from local
+9. Find the locally loaded script in the dev console sources, something like pcf_tools_1291497914/YourComponent/index.ts
+10. Set breakpoints, debug as usual, modify and create local dev builds as needed
+
 ## Deploy as a managed solution to test, pre-prod, prod environments
 
 Follow the detailed steps above but create a managed solution by running
