@@ -10,16 +10,16 @@ export type IMainProps = {
   context: ComponentFramework.Context<IInputs>
 }
 
-export function Main(props: IMainProps) {
+export const Main = (props: IMainProps) => {
 
   return (
     <>
       <AuthenticatedTemplate>
         <Label>Authenticated</Label>
+        <SignOutButton />
         <Greeting 
           name={props.context.parameters.name.raw}
         />
-        <SignOutButton />
       </AuthenticatedTemplate>
       <UnauthenticatedTemplate>
         <Label>Unauthenticated</Label>

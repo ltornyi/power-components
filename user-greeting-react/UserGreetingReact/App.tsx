@@ -9,7 +9,7 @@ export interface IAppProps {
   context: ComponentFramework.Context<IInputs>
 }
 
-export function App(props: IAppProps) {
+export const App = (props: IAppProps) => {
   return (
     <MsalProvider instance={props.pca}>
       <Main context={props.context}/>

@@ -22,4 +22,5 @@ Property definition and external domain usage added to manifest. `npm run refres
 
 ## Useful links
 
-[MSAL for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)
+* [MSAL for React](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-react)
+* [Tutorial: React and MSAL](https://github.com/Azure-Samples/ms-identity-javascript-react-tutorial)

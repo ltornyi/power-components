@@ -6,7 +6,6 @@ import { App, IAppProps,  } from "./App";
 import { MSAL_CONFIG } from "./msal/msalConfig";
 
 export class UserGreetingReact implements ComponentFramework.ReactControl<IInputs, IOutputs> {
-    private theComponent: ComponentFramework.ReactControl<IInputs, IOutputs>;
     private notifyOutputChanged: () => void;
     private props: IAppProps;
     private msalCallbackID: string | null;
@@ -28,7 +27,7 @@ export class UserGreetingReact implements ComponentFramework.ReactControl<IInput
       this.props = {pca, context};
     }
 
-    private initMsal() {
+    private initMsal = () => {
       const pca = new PublicClientApplication(MSAL_CONFIG);
       
       // Default to using the first account if no account is active on page load
