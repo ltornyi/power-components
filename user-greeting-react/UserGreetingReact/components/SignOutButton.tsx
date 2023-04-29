@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { EndSessionPopupRequest } from '@azure/msal-browser';
+import { EndSessionPopupRequest, InteractionStatus } from '@azure/msal-browser';
 import { useMsal } from '@azure/msal-react';
 import { PrimaryButton } from '@fluentui/react';
 
 export const SignOutButton = () => {
-  const { instance } = useMsal();
+  const { instance, inProgress } = useMsal();
   const logoutRequest: EndSessionPopupRequest = {
     account: instance.getActiveAccount(),
   }
@@ -15,9 +15,12 @@ export const SignOutButton = () => {
 
   return (
     <PrimaryButton
-      text="Sign out"
       onClick={handleLogoutPopup}
-    />
+      iconProps={{ iconName: "Signout" }}
+      disabled={inProgress === InteractionStatus.Logout}
+    >
+      Sign out {instance.getActiveAccount() ? instance.getActiveAccount()?.name : ""}
+    </PrimaryButton>
   )
 }
 

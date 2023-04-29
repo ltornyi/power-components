@@ -1,10 +1,10 @@
 import * as React from 'react';
-import { PopupRequest } from '@azure/msal-browser';
+import { InteractionStatus, PopupRequest } from '@azure/msal-browser';
 import { useMsal } from '@azure/msal-react';
 import { PrimaryButton } from '@fluentui/react';
 
 export const SignInButton = () => {
-  const { instance } = useMsal();
+  const { instance, inProgress } = useMsal();
   const loginRequest: PopupRequest = {
     scopes: []
   };
@@ -16,8 +16,11 @@ export const SignInButton = () => {
 
   return (
     <PrimaryButton
-      text="Sign in"
       onClick={handleLoginPopup}
-    />
+      iconProps={{ iconName: "Signin" }}
+      disabled={inProgress === InteractionStatus.Login}
+    >
+      Sign in
+    </PrimaryButton>
   )
 }
