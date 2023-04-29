@@ -1,4 +1,5 @@
 import { Configuration, LogLevel } from "@azure/msal-browser";
+import { AzureAD } from "../config";
 
 /**
  * Configuration object to be passed to MSAL instance on creation. 
@@ -7,9 +8,9 @@ import { Configuration, LogLevel } from "@azure/msal-browser";
  */
 export const MSAL_CONFIG: Configuration = {
   auth: {
-    clientId: 'YOUR_CLIENT_ID_HERE',
-    authority: 'https://login.microsoftonline.com/YOUR_TENANT_HERE',
-    redirectUri: 'http://localhost:8181',
+    clientId: AzureAD.appRegClientId,
+    authority: AzureAD.authority,
+    redirectUri: AzureAD.redirectURI,
   },
   cache: {
     cacheLocation: "sessionStorage", // This configures where your cache will be stored

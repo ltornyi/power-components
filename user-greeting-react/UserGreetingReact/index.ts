@@ -3,7 +3,7 @@ import { PublicClientApplication, EventType, AuthenticationResult } from "@azure
 
 import { IInputs, IOutputs } from "./generated/ManifestTypes";
 import { App, IAppProps,  } from "./App";
-import { MSAL_CONFIG } from "./msal/MsalConfig";
+import { MSAL_CONFIG } from "./msal/msalConfig";
 
 export class UserGreetingReact implements ComponentFramework.ReactControl<IInputs, IOutputs> {
     private theComponent: ComponentFramework.ReactControl<IInputs, IOutputs>;
@@ -25,7 +25,7 @@ export class UserGreetingReact implements ComponentFramework.ReactControl<IInput
     ): void {
       this.notifyOutputChanged = notifyOutputChanged;
       const pca = this.initMsal();
-      this.props = {pca};
+      this.props = {pca, context};
     }
 
     private initMsal() {
