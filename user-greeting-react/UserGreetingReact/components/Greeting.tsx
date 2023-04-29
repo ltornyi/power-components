@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { useMsal } from '@azure/msal-react';
-import { DetailsList, DetailsListLayoutMode, DetailsRow, IDetailsRowProps, Label, SelectionMode, Text } from '@fluentui/react';
+import { DetailsListLayoutMode, DetailsRow, IDetailsRowProps, Label, SelectionMode, ShimmeredDetailsList, Text } from '@fluentui/react';
 import { getGreeting } from '../api/helloApi';
 
 export type IGreetingProps = {
@@ -40,6 +40,7 @@ export const Greeting = (props: IGreetingProps) => {
       }
     }
 
+    setItems([]);
     getResponse(props.name || "");
   }, [props.name])
 
@@ -57,12 +58,14 @@ export const Greeting = (props: IGreetingProps) => {
   }
 
   return (
-    <DetailsList 
+    <ShimmeredDetailsList
       items={items}
       columns={columns}
       selectionMode={SelectionMode.none}
       layoutMode={DetailsListLayoutMode.fixedColumns}
       onRenderRow={renderDetailsRow}
+      enableShimmer={items.length == 0}
+      shimmerLines={4}
     />
   )
 }
