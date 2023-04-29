@@ -15,7 +15,6 @@
     "@azure/msal-browser": "^2.36.0",
     "@azure/msal-react": "^1.5.6",
     "@fluentui/react": "8.29.0",
-    "axios": "^1.4.0",
     "react": "16.8.6",
     "react-dom": "16.8.6"
   },

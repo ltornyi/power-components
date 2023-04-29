@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { helloAPI } from '../config';
 import { IPublicClientApplication } from '@azure/msal-browser';
 import { getTokenPopup } from '../msal/authModule';
@@ -26,10 +25,11 @@ const greetingCall = async (name: string, accessToken: string): Promise<Greeting
     code: helloAPI.apikey
   }
   try {
-    const response = await axios.get(helloAPI.URL, {params: queryParams, headers});
-    return response.data;
+    const response = await fetch(helloAPI.URL + '?' + new URLSearchParams(queryParams), {headers});
+    const data = await response.json();
+    return data;
   } catch(error) {
-    console.log('getGreeting error:')
+    console.log('greetingCall error:')
     console.log(error)
   }
   return null

@@ -6,7 +6,7 @@ This component is the React version of the UserGreeting component, uses FluentUI
 This project was created by running
 
     pac pcf init --namespace LearnComponentFramework --name UserGreetingReact --template field --framework react --run-npm-install
-    npm install @azure/msal-react @azure/msal-browser axios
+    npm install @azure/msal-react @azure/msal-browser
 
 ## Component configuration
 Added `<PcfBuildMode>production</PcfBuildMode>` into .pcfproj file. Also added the following to tsconfig.json to enable tree-shaking:
