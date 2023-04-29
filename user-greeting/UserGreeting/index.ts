@@ -1,4 +1,3 @@
-import { RedirectRequest, SilentRequest } from "@azure/msal-browser";
 import {IInputs, IOutputs} from "./generated/ManifestTypes";
 import { getGreeting } from "./helloApi";
 import { AuthModule } from "./msal/authModule";
